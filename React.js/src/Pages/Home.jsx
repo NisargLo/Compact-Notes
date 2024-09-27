@@ -13,16 +13,16 @@ function Home() {
     return (
         <>
             <center>
-                <div className="d-flex justify-content-center row">
+                <div className="d-flex justify-content-center row px-4">
                     {notes.map(note => (
-                        <div key={note.id} className="col-5 mb-4">
+                        <div key={note.id} className="col-4 mb-4">
                             <div className="card">
-                                <div className="card-header">{note.name}</div>
-                                <img src={note.avatar} className="card-img-top" alt={note.name} />
+                                <div className="card-header placeholder-glow">{note.name}</div>
+                                <img src={note.avatar} className="card-img-top placeholder-glow" alt={note.name} />
                                 <div className="card-body">
-                                    <h5 className="card-title">{note.name}</h5>
-                                    <p className="card-text">{note.description}</p>
-                                    <p className="card-text"><small className="text-muted">ID: {note.id}</small></p>
+                                    <h5 className="card-title placeholder-glow">{note.name}</h5>
+                                    <p className="card-text placeholder-glow">{note.description}</p>
+                                    <p className="card-text placeholder-glow"><small className="text-muted">ID: {note.id}</small></p>
                                 </div>
                             </div>
                         </div>
