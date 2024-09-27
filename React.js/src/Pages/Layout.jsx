@@ -4,7 +4,7 @@ import '../Styles/Layout_Styles.css';
 function Layout() {
     return (
         <div className='container-fluid'>
-            <div className='mb-3'>
+            <div className='mb-4 sticky-top'>
                 <nav class="navbar bg-success-subtle">
                     <a href="http://localhost:3000" class="navbar-brand"><i class="fa-solid fa-note-sticky h1 ms-4 text-info-emphasis" /></a>
                     <Link to="/" className="h2 mx-5 text-decoration-none text-info-emphasis">Home</Link>

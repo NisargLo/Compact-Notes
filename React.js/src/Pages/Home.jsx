@@ -15,7 +15,7 @@ function Home() {
             <center>
                 <div className="d-flex justify-content-center row">
                     {notes.map(note => (
-                        <div key={note.id} className="col-5">
+                        <div key={note.id} className="col-5 mb-4">
                             <div className="card">
                                 <div className="card-header">{note.name}</div>
                                 <img src={note.avatar} className="card-img-top" alt={note.name} />
