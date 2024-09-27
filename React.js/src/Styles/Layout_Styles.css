@@ -1,3 +1,9 @@
 .mysearchbar {
     width: 25rem;
 }
+
+.custom-fixed {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+}
