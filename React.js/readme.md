@@ -1,1 +1,1 @@
-<h2>Command to run react project: serve -s build</h2>
+<h2>Command to run react project: 'serve -s build'</h2>
