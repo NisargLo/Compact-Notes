@@ -4,4 +4,4 @@
 <h2>Subject: Web Technology</h2>
 <h2>Frameworks: Bootstrap, ExpressJS</h2>
 <h2>Library: ReactJS</h2>
-<h2>Cloud: MongoDB Atlas</h2></i>
+<h2>Cloud Service: MongoDB Atlas</h2></i>
