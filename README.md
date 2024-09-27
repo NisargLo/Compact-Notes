@@ -1,1 +1,1 @@
-<h1>Notes</h1>
+<h1>Notes App</h1>
