@@ -6,7 +6,7 @@ function Layout() {
         <div className='container-fluid'>
             <div className='mb-3'>
                 <nav class="navbar bg-success-subtle">
-                    <a class="navbar-brand"><i class="fa-solid fa-note-sticky h1 ms-4 text-info-emphasis" /></a>
+                    <a href="http://localhost:3000" class="navbar-brand"><i class="fa-solid fa-note-sticky h1 ms-4 text-info-emphasis" /></a>
                     <Link to="/" className="h2 mx-5 text-decoration-none text-info-emphasis">Home</Link>
                     <Link to="/About" className="h2 mx-5 text-decoration-none text-info-emphasis">About</Link>
                     <Link to="/Contact" className="h2 mx-5 text-decoration-none text-info-emphasis">Contact</Link>
