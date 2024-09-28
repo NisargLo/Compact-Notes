@@ -2,6 +2,7 @@
 
 # dependencies
 /React.js/node_modules
+/node_modules
 /.pnp
 .pnp.js
 
@@ -23,3 +24,4 @@ yarn-debug.log*
 yarn-error.log*
 
 *.code-workspace
+Express.js/tempCodeRunnerFile.js
