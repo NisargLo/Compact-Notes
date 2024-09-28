@@ -1,0 +1,15 @@
+.myimg{
+    width: auto;
+    height: 15rem;
+    max-height: 20rem;
+}
+.myHeader{
+    font-size: 1.2rem;
+}
+.myTitle{
+    font-size: 1.4rem;
+    font-weight: bolder;
+}
+.myContent{
+    font-size: 1.1rem;
+}
