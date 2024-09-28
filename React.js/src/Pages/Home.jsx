@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+// import { useState } from 'react';
 import paris_image from '../Images/Paris.jpg';
 import sydney_image from '../Images/Sydney.jpg';
 import melbourne_image from '../Images/Melbourne.jpg';
@@ -41,6 +42,10 @@ function Home() {
         navigate(`/read/${note.name}`, { state: note });
     };
 
+    const handleEditClick = (note) => {
+        navigate(`/edit/${note.name}`, { state: note });
+    };
+
     return (
         <>
             <center>
@@ -58,10 +63,10 @@ function Home() {
                                 </div>
                                 <div className="d-flex justify-content-center mb-2">
                                     <div className="mx-auto">
-                                        <button className="btn btn-primary rounded-3 py-2 px-3" onClick={()=>handleReadClick(note)}><p className='h5'><i className="fa-solid fa-book"></i> Read</p></button>
+                                        <button className="btn btn-primary rounded-3 py-2 px-3" onClick={() => handleReadClick(note)}><p className='h5'><i className="fa-solid fa-book"></i> Read</p></button>
                                     </div>
                                     <div className="mx-auto">
-                                        <button className="btn btn-warning rounded-3 py-2 px-3"><p className='h5'><i className="fa-solid fa-pen-to-square"></i> Edit</p></button>
+                                        <button className="btn btn-warning rounded-3 py-2 px-3" onClick={() => handleEditClick(note)}><p className='h5'><i className="fa-solid fa-pen-to-square"></i> Edit</p></button>
                                     </div>
                                     <div className="mx-auto">
                                         <button className="btn btn-danger rounded-3 py-2 px-3"><p className='h5'><i className="fa-solid fa-trash"></i> Delete</p></button>

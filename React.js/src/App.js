@@ -19,7 +19,7 @@ function App() {
                         <Route path='/contact' element={<Contact />} />
                         <Route path='/read/:name' element={<Read />} />
                         <Route path='/add' element={<Add />} />
-                        <Route path='/edit' element={<Edit />} />
+                        <Route path='/edit/:name' element={<Edit />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
