@@ -96,7 +96,7 @@ function Modal({ note, onClose }) {
                         <p className="mt-3" style={{ fontSize: '1.5rem' }}>{note.description}</p>
                     </div>
                     <div className="modal-footer px-4">
-                        <button type="button" className="btn btn-secondary" onClick={onClose}><p className="h5">Close</p></button>
+                        <button type="button" className="btn btn-secondary" onClick={onClose}><p className="h4"><i class="fa-solid fa-xmark"></i> Close</p></button>
                     </div>
                 </div>
             </div>
