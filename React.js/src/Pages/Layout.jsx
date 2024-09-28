@@ -33,8 +33,8 @@ function Layout() {
                     <button
                         className="btn btn-success bg-gradient rounded-3 p-3"
                         onClick={() => {
-                            navigate(-1);
                             setInAddPage(false);
+                            navigate(-1);
                         }}>
                         <p className='h4'>
                             <i class="fa-solid fa-upload"></i> Submit
