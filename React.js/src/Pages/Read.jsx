@@ -7,12 +7,12 @@ function Read() {
     const note = location.state;
 
     return (
-        <div className="read-container">
+        <div className="container-fluid">
             <div className="text-center mb-4">
-                <h1 className="display-2">{note.name}</h1>
+                <h1 className="display-2">{note.title}</h1>
             </div>
             <div className="read-content d-flex flex-column align-items-center mb-2">
-                <img src={note.image} className="img-fluid rounded-3 mb-3" alt={note.name} style={{ maxHeight: '20rem', width: 'auto' }} />
+                <img src={note.image} className="img-fluid rounded-3 mb-3" alt={note.title} style={{ maxHeight: '20rem', width: 'auto' }} />
                 <p style={{ fontSize: '2rem' }}>{note.description}</p>
             </div>
             <div className="text-center">
