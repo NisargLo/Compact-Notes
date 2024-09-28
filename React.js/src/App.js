@@ -4,6 +4,9 @@ import Home from './Pages/Home';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
 import Layout from './Pages/Layout';
+import Read from './Pages/Read';
+import Add from './Pages/Add';
+import Edit from './Pages/Edit';
 
 function App() {
     return (
@@ -12,8 +15,11 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Layout />}>
                         <Route index element={<Home />} />
-                        <Route path='/About' element={<About />} />
-                        <Route path='/Contact' element={<Contact />} />
+                        <Route path='/about' element={<About />} />
+                        <Route path='/contact' element={<Contact />} />
+                        <Route path='/read/:name' element={<Read />} />
+                        <Route path='/add' element={<Add />} />
+                        <Route path='/edit' element={<Edit />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
