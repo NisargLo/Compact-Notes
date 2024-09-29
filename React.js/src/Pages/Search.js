@@ -7,13 +7,20 @@ import '../Styles/Home_Style.css';
 function Search() {
     const { title } = useParams();
     const [results, setResults] = useState([]);
+    const [error, setError] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchResults = async () => {
-            const response = await fetch(`http://localhost:3100/search/${title}`);
-            const data = await response.json();
-            setResults(data);
+        const fetchResults = () => {
+            fetch(`http://localhost:3100/search/${title}`)
+                .then(res => res.json())
+                .then(data => {
+                    setResults(data);
+                    setError(null);
+                })
+                .catch(error => {
+                    setError(`Error: `+error.message);
+                });
         };
         fetchResults();
     }, [title]);
@@ -31,15 +38,19 @@ function Search() {
     };
 
     return (
-        <center>
-            <div>
-                <h2>Search Results for: "{title}"</h2>
-                <div className="d-flex justify-content-center row">
-                    {results.length > 0 ? (
-                        results.map((note, index) => (
+        <div className="d-flex flex-column align-items-center">
+            <h2>Search Results for: "{title}"</h2>
+            <div className="row justify-content-center">
+                {error ? (
+                    <p className="error h3 text-danger">{error}</p>
+                ) : results.length > 0 ? (
+                    results.map((note, index) => (
+                        <center>
                             <div key={index} className="col-auto mb-4" style={{ maxWidth: '30rem' }}>
                                 <div className="card d-flex justify-content-center align-content-center border border-2 border-dark-subtle">
-                                    <div className="card-header text-truncate px-2 myHeader border-2 border-dark-subtle">{note.title}</div>
+                                    <div className="card-header text-truncate px-2 myHeader border-2 border-dark-subtle">
+                                        {note.title}
+                                    </div>
                                     <div className="m-2">
                                         <img src={note.image} className="card-img-top rounded img-fluid myimg" alt={note.title} />
                                     </div>
@@ -64,13 +75,13 @@ function Search() {
                                     </div>
                                 </div>
                             </div>
-                        ))
-                    ) : (
-                        <p>No results found.</p>
-                    )}
-                </div>
+                        </center>
+                    ))
+                ) : (
+                    <p>No results found.</p>
+                )}
             </div>
-        </center>
+        </div>
     );
 }
 
