@@ -5,18 +5,18 @@ import Delete from './Delete';
 
 function Home() {
     const [notes, setNotes] = useState([]);
+    const APIURL = 'http://localhost:3100/';
+    const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('https://66f37eed71c84d805878e31d.mockapi.io/Notes').then((res) => {
-            return res = res.json();
-        }).then((data) => {
-            setNotes(data);
-        }).catch((err) => {
-            console.log(err);
-        });
-    }, []);
+        fetchNotes();
+    }, [APIURL]);
 
-    const navigate = useNavigate();
+    const fetchNotes = async () => {
+        const response = await fetch(APIURL);
+        const data = await response.json();
+        setNotes(data);
+    };
 
     const handleReadClick = (note) => {
         navigate(`/read/${note.name}`, { state: note });
@@ -26,8 +26,9 @@ function Home() {
         navigate(`/edit/${note.name}`, { state: note });
     };
 
-    const handleDeleteClick = (id) => {
-        setNotes((prevNotes) => prevNotes.filter(note => note.id !== id));
+    const handleDeleteClick = async (id) => {
+        await setNotes((prevNotes) => prevNotes.filter(note => note.id !== id));
+        fetchNotes();
     };
 
     return (
@@ -42,7 +43,7 @@ function Home() {
                                     <img src={note.image} className="card-img-top rounded img-fluid myimg" alt={note.title} />
                                 </div>
                                 <div className="card-body mb-2">
-                                    <h5 className="card-title text-truncate myTitle h-100">{note.title}</h5>
+                                    <p className="card-title text-truncate myTitle h-100">{note.title}</p>
                                     <p className="card-text text-truncate myContent">{note.description}</p>
                                 </div>
                                 <div className="d-flex justify-content-center mb-2">
