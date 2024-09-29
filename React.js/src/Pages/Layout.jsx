@@ -1,6 +1,7 @@
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 import '../Styles/Layout_Styles.css';
 import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
 
 function Layout() {
     const navigate = useNavigate();
@@ -8,6 +9,17 @@ function Layout() {
 
     const handleAddClick = () => {
         navigate('/add');
+    };
+
+    const [title, setTitle] = useState('');
+
+    const handleSearchClick = (e) => {
+        e.preventDefault();
+        if (title.trim()) {
+            console.log("Searching for: ", title);
+            navigate(`/search/${title}`);
+            setTitle('');
+        }
     };
 
     const isHomePage = location.pathname === '/';
@@ -21,8 +33,8 @@ function Layout() {
                     <Link to="/about" className="h2 me-auto text-decoration-none text-light"><i className="fa-solid fa-users"></i> About</Link>
                     <Link to="/contact" className="h2 me-auto text-decoration-none text-light"><i className="fa-solid fa-phone"></i> Contact</Link>
                     <form className="d-flex ms-auto" role="search">
-                        <input className="form-control m-3 mysearchbar bg-light border-secondary" type="search" placeholder="Search Notes" aria-label="Search" />
-                        <button className="btn btn-light p-2 px-3 my-3 me-4" type="submit">Search</button>
+                        <input className="form-control m-3 mysearchbar bg-light border-secondary" type="search" placeholder="Search Notes" aria-label="Search" value={title} onChange={(e) => setTitle(e.target.value)} />
+                        <button className="btn btn-light p-2 px-3 my-3 me-4" type="submit" onClick={handleSearchClick}>Search</button>
                     </form>
                 </nav>
             </div>

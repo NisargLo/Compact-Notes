@@ -19,11 +19,11 @@ function Home() {
     };
 
     const handleReadClick = (note) => {
-        navigate(`/read/${note.name}`, { state: note });
+        navigate(`/read/${note.title}`, { state: note });
     };
 
     const handleEditClick = (note) => {
-        navigate(`/edit/${note.name}`, { state: note });
+        navigate(`/edit/${note.title}`, { state: note });
     };
 
     const handleDeleteClick = async (id) => {
@@ -58,7 +58,7 @@ function Home() {
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     ))}
                 </div>
             </center>

@@ -67,7 +67,7 @@ function Edit() {
                         placeholder="Enter Description"
                         style={{ fontSize: '1.25rem', height: '10rem' }}
                         value={formData.description}
-                        onChange={handleChange} 
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="text-center">

@@ -6,7 +6,7 @@ function Delete({ note, onDelete }) {
     const handleDelete = async () => {
         // eslint-disable-next-line no-restricted-globals
         if (confirm('Do you want to delete your note?')) {
-            await fetch( `http://localhost:3100/delete/${note._id}`, {
+            await fetch(`http://localhost:3100/delete/${note._id}`, {
                 method: 'DELETE',
             });
             onDelete(note._id);
