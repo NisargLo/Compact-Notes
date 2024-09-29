@@ -57,6 +57,8 @@ mongoose.connect(MongoDB_Atlas_URL).then(() => {
                 $options: 'i'
             }
         });
+        console.log(`\nSearched for: ${req.params.title}`);
+        console.log('Found notes: ', result);
         res.send(result);
     });    
 
