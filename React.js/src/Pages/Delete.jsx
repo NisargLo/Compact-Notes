@@ -1,19 +1,38 @@
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function Delete({ note, onDelete }) {
     const navigate = useNavigate();
 
     const handleDelete = async () => {
-        // eslint-disable-next-line no-restricted-globals
-        if (confirm('Do you want to delete your note?')) {
+        const result = await Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to delete your note?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, keep it'
+        });
+
+        if (result.isConfirmed) {
             await fetch(`http://localhost:3100/delete/${note._id}`, {
                 method: 'DELETE',
             });
             onDelete(note._id);
+            Swal.fire(
+                'Deleted!',
+                'Your note has been deleted.',
+                'success'
+            );
             navigate('/');
-            alert("Your note has been deleted.");
         } else {
-            alert("Your note is safe: )");
+            Swal.fire(
+                'Cancelled',
+                'Your note is safe :)',
+                'info'
+            );
         }
     };
 

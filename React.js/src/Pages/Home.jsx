@@ -5,6 +5,7 @@ import Delete from './Delete';
 
 function Home() {
     const [notes, setNotes] = useState([]);
+    const [error, setError] = useState([]);
     const APIURL = 'http://localhost:3100/';
     const navigate = useNavigate();
 
@@ -12,11 +13,18 @@ function Home() {
         fetchNotes();
     }, [APIURL]);
 
-    const fetchNotes = async () => {
-        const response = await fetch(APIURL);
-        const data = await response.json();
-        setNotes(data);
+    const fetchNotes = () => {
+        fetch(APIURL)
+        .then(response => response.json())
+        .then(data => {
+            setNotes(data);
+            setError(null);
+        })
+        .catch(error => {
+            setError(`Error: `+error.message);
+        });
     };
+
 
     const handleReadClick = (note) => {
         navigate(`/read/${note.title}`, { state: note });
@@ -35,6 +43,7 @@ function Home() {
         <>
             <center>
                 <div className="d-flex justify-content-center row">
+                    {error && <p className="error h3 text-danger">{error}</p>}
                     {notes.map((note, index) => (
                         <div key={index} className="col-auto mb-4" style={{ maxWidth: '30rem' }}>
                             <div className="card d-flex justify-content-center align-content-center border border-2 border-dark-subtle">
