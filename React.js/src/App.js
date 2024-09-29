@@ -8,6 +8,7 @@ import Layout from './Pages/Layout';
 import Read from './Pages/Read';
 import Add from './Pages/Add';
 import Edit from './Pages/Edit';
+import Search from './Pages/Search';
 
 function App() {
     return (
@@ -19,9 +20,10 @@ function App() {
                         <Route index element={<Home />} />
                         <Route path='/about' element={<About />} />
                         <Route path='/contact' element={<Contact />} />
-                        <Route path='/read/:name' element={<Read />} />
+                        <Route path='/read/:title' element={<Read />} />
                         <Route path='/add' element={<Add />} />
-                        <Route path='/edit/:name' element={<Edit />} />
+                        <Route path='/edit/:title' element={<Edit />} />
+                        <Route path='/search/:title' element={<Search />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

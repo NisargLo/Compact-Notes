@@ -17,7 +17,7 @@ function Add() {
             [name]: value,
         }));
     };
-    
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         await fetch('http://localhost:3100/add', {
