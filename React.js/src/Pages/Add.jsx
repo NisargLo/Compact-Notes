@@ -17,10 +17,10 @@ function Add() {
             [name]: value,
         }));
     };
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await fetch('https://66f37eed71c84d805878e31d.mockapi.io/Notes', {
+        await fetch('http://localhost:3100/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ function Add() {
                 <form onSubmit={handleSubmit}>
                     <div class="mb-5">
                         <label for="formGroupExampleInput" class="form-label" style={{ fontSize: '3rem' }}>Title</label>
-                        <input type="text" class="form-control border border-dark border-3" id="formGroupExampleInput" placeholder="Enter Title" style={{ fontSize: '1.25rem' }} name='title' value={formData.name} onChange={handleChange} />
+                        <input type="text" class="form-control border border-dark border-3" id="formGroupExampleInput" placeholder="Enter Title" style={{ fontSize: '1.25rem' }} name='title' value={formData.title} onChange={handleChange} />
                     </div>
                     <div class="mb-5">
                         <label for="formGroupExampleInput" class="form-label" style={{ fontSize: '3rem' }}>Picture</label>

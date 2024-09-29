@@ -22,7 +22,7 @@ function Edit() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await fetch(`https://66f37eed71c84d805878e31d.mockapi.io/Notes/${note.id}`, {
+        await fetch(`http://localhost:3100/edit/${note._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -67,7 +67,8 @@ function Edit() {
                         placeholder="Enter Description"
                         style={{ fontSize: '1.25rem', height: '10rem' }}
                         value={formData.description}
-                        onChange={handleChange} />
+                        onChange={handleChange} 
+                    />
                 </div>
                 <div className="text-center">
                     <button type="button" className="btn btn-secondary rounded-3 py-2 px-3 mx-5" onClick={() => navigate(-1)}>
