@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Delete from './Delete';
 import { useNavigate } from 'react-router-dom';
-import '../Styles/Home_Style.css';
+import '../Styles/Home_Styles.css';
 
 function Search() {
     const { title } = useParams();
