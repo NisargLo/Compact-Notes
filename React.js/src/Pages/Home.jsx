@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import '../Styles/Home_Style.css';
+import '../Styles/Home_Styles.css';
 import { useState, useEffect } from "react";
 import Delete from './Delete';
 
